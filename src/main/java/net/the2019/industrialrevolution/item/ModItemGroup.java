@@ -17,14 +17,29 @@ public class ModItemGroup {
 
                 entries.add(ModItems.RAW_NECRONIUM);
                 entries.add(ModItems.NECRONIUM_INGOT);
+                entries.add(ModItems.COMPRESSED_COAL);
+                entries.add(ModItems.INDUSTRIAL_METAL_INGOT);
+                entries.add(ModItems.SALMON_FILET);
+                entries.add(ModItems.INDUSTRIAL_METAL_KNIFE);
+                entries.add(ModItems.DIAMOND_KNIFE);
+                entries.add(ModItems.IRON_KNIFE);
+                entries.add(ModItems.STONE_KNIFE);
 
                 entries.add(ModBlocks.NECRONIUM_ORE);
+                entries.add(ModBlocks.NETHER_NECRONIUM_ORE);
+                entries.add(ModBlocks.END_STONE_NECRONIUM_ORE);
+                entries.add(ModBlocks.DEEPSLATE_NECRONIUM_ORE);
+                entries.add(ModBlocks.MOSSY_BRICKS);
+                entries.add(ModBlocks.INDUSTRIAL_METAL_BLOCK);
+                entries.add(ModBlocks.MOSSY_INDUSTRIAL_METAL_BLOCK);
+                entries.add(ModBlocks.INDUSTRIAL_METAL_BLOCK_STAIRS);
+                entries.add(ModBlocks.INDUSTRIAL_METAL_BLOCK_SLAB);
 
 
             }).build());
 
 
     public static void registerItemGroup(){
-
+        IndustrialRevolution.LOGGER.info("Registering  Mod Item Group for " + IndustrialRevolution.MOD_ID);
     }
 }

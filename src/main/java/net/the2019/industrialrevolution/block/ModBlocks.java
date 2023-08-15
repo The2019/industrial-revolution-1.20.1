@@ -2,8 +2,7 @@ package net.the2019.industrialrevolution.block;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -13,7 +12,21 @@ import net.the2019.industrialrevolution.IndustrialRevolution;
 
 public class ModBlocks {
 
+    //Ores
     public static final Block NECRONIUM_ORE = registerBlock("necronium_ore", new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+    public static final Block NETHER_NECRONIUM_ORE = registerBlock("nether_necronium_ore", new Block(FabricBlockSettings.copyOf(Blocks.NETHERRACK)));
+    public static final Block END_STONE_NECRONIUM_ORE = registerBlock("end_stone_necronium_ore", new Block(FabricBlockSettings.copyOf(Blocks.END_STONE)));
+    public static final Block DEEPSLATE_NECRONIUM_ORE = registerBlock("deepslate_necronium_ore", new Block(FabricBlockSettings.copyOf(Blocks.DEEPSLATE)));
+
+    //Full Blocks
+    public static final Block MOSSY_BRICKS = registerBlock("mossy_bricks", new Block(FabricBlockSettings.copyOf(Blocks.BRICKS)));
+    public static final Block INDUSTRIAL_METAL_BLOCK = registerBlock("industrial_metal_block", new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+    public static final Block MOSSY_INDUSTRIAL_METAL_BLOCK = registerBlock("mossy_industrial_metal_block", new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+
+    //Not Full BLocks
+    public static final Block INDUSTRIAL_METAL_BLOCK_STAIRS = registerBlock("industrial_metal_block_stairs", new StairsBlock(ModBlocks.INDUSTRIAL_METAL_BLOCK.getDefaultState(), FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+    public static final Block INDUSTRIAL_METAL_BLOCK_SLAB = registerBlock("industrial_metal_block_slab", new SlabBlock( FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+
 
 
     private static Item registerBlockItem(String name, Block block){
@@ -26,7 +39,7 @@ public class ModBlocks {
     }
 
     public static void registerModBlocks(){
-        IndustrialRevolution.LOGGER.info("Registering  Mod Items for " + IndustrialRevolution.MOD_ID);
+        IndustrialRevolution.LOGGER.info("Registering Mod Blocks for " + IndustrialRevolution.MOD_ID);
     }
 
 }

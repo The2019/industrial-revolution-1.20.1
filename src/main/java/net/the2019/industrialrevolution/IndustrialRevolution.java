@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.the2019.industrialrevolution.block.ModBlocks;
 import net.the2019.industrialrevolution.item.ModItemGroup;
 import net.the2019.industrialrevolution.item.ModItems;
+import net.the2019.industrialrevolution.util.ModRegistries;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,6 +20,8 @@ public class IndustrialRevolution implements ModInitializer {
 		ModItems.registerModItems();
 
 		ModBlocks.registerModBlocks();
+
+		ModRegistries.registerModStuff();
 
 	}
 }
