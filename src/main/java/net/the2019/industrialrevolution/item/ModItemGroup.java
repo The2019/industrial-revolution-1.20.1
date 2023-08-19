@@ -24,6 +24,7 @@ public class ModItemGroup {
                 entries.add(ModItems.DIAMOND_KNIFE);
                 entries.add(ModItems.IRON_KNIFE);
                 entries.add(ModItems.STONE_KNIFE);
+                entries.add(ModItems.TOOL_REPAIR_KIT);
 
                 entries.add(ModBlocks.NECRONIUM_ORE);
                 entries.add(ModBlocks.NETHER_NECRONIUM_ORE);

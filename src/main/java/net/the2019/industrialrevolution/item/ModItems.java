@@ -7,6 +7,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.the2019.industrialrevolution.IndustrialRevolution;
 import net.the2019.industrialrevolution.item.custom.KnifeItem;
+import net.the2019.industrialrevolution.item.custom.ToolRepairKitItem;
 import net.the2019.industrialrevolution.util.ModFoodComponents;
 
 public class ModItems {
@@ -25,6 +26,7 @@ public class ModItems {
     public static final Item DIAMOND_KNIFE = registerItem("diamond_knife", new KnifeItem(new FabricItemSettings().maxCount(1).maxDamage(3)));
     public static final Item IRON_KNIFE = registerItem("iron_knife", new KnifeItem(new FabricItemSettings().maxCount(1).maxDamage(3)));
     public static final Item STONE_KNIFE = registerItem("stone_knife", new KnifeItem(new FabricItemSettings().maxCount(1).maxDamage(3)));
+    public static final Item TOOL_REPAIR_KIT = registerItem("tool_repair_kit", new ToolRepairKitItem(new FabricItemSettings().maxCount(1)));
 
 
 

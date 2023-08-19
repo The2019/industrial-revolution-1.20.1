@@ -36,11 +36,15 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
 
+        //Items
         itemModelGenerator.register(ModItems.RAW_NECRONIUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.NECRONIUM_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.COMPRESSED_COAL, Models.GENERATED);
         itemModelGenerator.register(ModItems.INDUSTRIAL_METAL_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.SALMON_FILET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TOOL_REPAIR_KIT, Models.GENERATED);
+
+        //Tools
         itemModelGenerator.register(ModItems.INDUSTRIAL_METAL_KNIFE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DIAMOND_KNIFE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.IRON_KNIFE, Models.HANDHELD);
