@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_necronium": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "industrialrevolution:raw_necronium"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:necronium_ingot_from_blasting_raw_necronium"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_necronium",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:necronium_ingot_from_blasting_raw_necronium"
+    ]
+  },
+  "sends_telemetry_event": false
+}

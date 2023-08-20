@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "industrialrevolution:block/industrial_metal_block",
+    "side": "industrialrevolution:block/industrial_metal_block",
+    "top": "industrialrevolution:block/industrial_metal_block"
+  }
+}

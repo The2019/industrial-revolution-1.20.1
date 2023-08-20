@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "industrialrevolution:necronium_ore"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "industrialrevolution:necronium_ingot"
+  }
+}

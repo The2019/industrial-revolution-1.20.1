@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "industrialrevolution:item/industrial_metal_knife"
+  }
+}

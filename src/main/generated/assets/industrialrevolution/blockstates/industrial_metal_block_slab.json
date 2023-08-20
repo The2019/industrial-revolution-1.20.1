@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "industrialrevolution:block/industrial_metal_block_slab"
+    },
+    "type=double": {
+      "model": "industrialrevolution:block/industrial_metal_block"
+    },
+    "type=top": {
+      "model": "industrialrevolution:block/industrial_metal_block_slab_top"
+    }
+  }
+}

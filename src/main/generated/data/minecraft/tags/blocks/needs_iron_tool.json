@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "industrialrevolution:nether_necronium_ore",
+    "industrialrevolution:industrial_metal_block",
+    "industrialrevolution:mossy_industrial_metal_block"
+  ]
+}

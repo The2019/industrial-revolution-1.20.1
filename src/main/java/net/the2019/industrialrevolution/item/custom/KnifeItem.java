@@ -25,7 +25,6 @@ public class KnifeItem extends Item {
             if(entity instanceof SalmonEntity && !user.getItemCooldownManager().isCoolingDown(stack.getItem())){
                 Vec3d pos = entity.getPos();
                 World world = entity.getWorld();
-
                 ItemEntity itemEntity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModItems.SALMON_FILET, new Random().nextInt(1,3)));
                 world.spawnEntity(itemEntity);
 

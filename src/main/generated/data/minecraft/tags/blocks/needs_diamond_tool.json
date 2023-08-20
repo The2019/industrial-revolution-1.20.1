@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "industrialrevolution:necronium_ore",
+    "industrialrevolution:end_stone_necronium_ore",
+    "industrialrevolution:deepslate_necronium_ore"
+  ]
+}

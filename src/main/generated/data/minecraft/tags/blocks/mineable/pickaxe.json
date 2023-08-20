@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "industrialrevolution:necronium_ore",
+    "industrialrevolution:nether_necronium_ore",
+    "industrialrevolution:end_stone_necronium_ore",
+    "industrialrevolution:deepslate_necronium_ore",
+    "industrialrevolution:mossy_bricks",
+    "industrialrevolution:industrial_metal_block",
+    "industrialrevolution:mossy_industrial_metal_block"
+  ]
+}

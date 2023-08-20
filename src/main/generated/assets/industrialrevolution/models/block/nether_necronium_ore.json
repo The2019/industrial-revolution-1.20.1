@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "industrialrevolution:block/nether_necronium_ore"
+  }
+}

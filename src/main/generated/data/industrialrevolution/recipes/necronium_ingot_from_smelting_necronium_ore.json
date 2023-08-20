@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "necronium_ingot",
+  "ingredient": {
+    "item": "industrialrevolution:necronium_ore"
+  },
+  "result": "industrialrevolution:necronium_ingot"
+}
