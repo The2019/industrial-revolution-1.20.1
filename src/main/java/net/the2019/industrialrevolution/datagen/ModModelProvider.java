@@ -28,7 +28,7 @@ public class ModModelProvider extends FabricModelProvider {
         industrialMetalBlockTexturePool.stairs(ModBlocks.INDUSTRIAL_METAL_BLOCK_STAIRS);
         industrialMetalBlockTexturePool.slab(ModBlocks.INDUSTRIAL_METAL_BLOCK_SLAB);
 
-
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.INDUSTRIAL_SMELTER);
 
 
     }

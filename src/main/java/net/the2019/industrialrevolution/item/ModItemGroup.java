@@ -36,6 +36,7 @@ public class ModItemGroup {
                 entries.add(ModBlocks.INDUSTRIAL_METAL_BLOCK_STAIRS);
                 entries.add(ModBlocks.INDUSTRIAL_METAL_BLOCK_SLAB);
 
+                entries.add(ModBlocks.INDUSTRIAL_SMELTER);
 
             }).build());
 

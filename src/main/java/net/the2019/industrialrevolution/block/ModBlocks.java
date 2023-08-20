@@ -9,6 +9,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.the2019.industrialrevolution.IndustrialRevolution;
+import net.the2019.industrialrevolution.block.custom.IndustrialSmelterBlock;
 
 public class ModBlocks {
 
@@ -26,6 +27,9 @@ public class ModBlocks {
     //Not Full BLocks
     public static final Block INDUSTRIAL_METAL_BLOCK_STAIRS = registerBlock("industrial_metal_block_stairs", new StairsBlock(ModBlocks.INDUSTRIAL_METAL_BLOCK.getDefaultState(), FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block INDUSTRIAL_METAL_BLOCK_SLAB = registerBlock("industrial_metal_block_slab", new SlabBlock( FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
+
+    //Machines
+    public static final Block INDUSTRIAL_SMELTER = registerBlock("industrial_smelter", new IndustrialSmelterBlock( FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
 
 
 

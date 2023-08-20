@@ -20,5 +20,7 @@
   "block.industrialrevolution.industrial_metal_block": "Industrial Metal Block",
   "block.industrialrevolution.mossy_industrial_metal_block": "Mossy Industrial Metal Block",
   "block.industrialrevolution.industrial_metal_block_stairs": "Industrial Metal Block Stair",
-  "block.industrialrevolution.industrial_metal_block_slab": "Industrial Metal Block Slab"
+  "block.industrialrevolution.industrial_metal_block_slab": "Industrial Metal Block Slab",
+
+  "block.industrialrevolution.industrial_smelter": "Industrial Smelter"
 }

@@ -35,6 +35,6 @@ public class ModItems {
     }
 
     public static void registerModItems(){
-        IndustrialRevolution.LOGGER.info("Registering  Mod Items for " + IndustrialRevolution.MOD_ID);
+        IndustrialRevolution.LOGGER.info("Registering Mod Items for " + IndustrialRevolution.MOD_ID);
     }
 }
