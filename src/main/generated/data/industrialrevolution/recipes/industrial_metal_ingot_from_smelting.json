@@ -1,0 +1,14 @@
+{
+  "type": "industrialrevolution:smelting",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "industrialrevolution:coal_dust"
+    }
+  ],
+  "output": {
+    "item": "industrialrevolution:industrial_metal_ingot"
+  }
+}

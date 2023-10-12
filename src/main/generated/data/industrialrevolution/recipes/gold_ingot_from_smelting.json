@@ -1,0 +1,15 @@
+{
+  "type": "industrialrevolution:smelting",
+  "ingredients": [
+    {
+      "item": "industrialrevolution:gold_dust"
+    },
+    {
+      "item": "industrialrevolution:gold_dust"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "minecraft:gold_ingot"
+  }
+}

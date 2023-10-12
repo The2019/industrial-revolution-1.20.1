@@ -1,0 +1,11 @@
+{
+  "type": "industrialrevolution:crushing",
+  "ingredients": [
+    {
+      "item": "minecraft:copper_ingot"
+    }
+  ],
+  "output": {
+    "item": "industrialrevolution:copper_dust"
+  }
+}

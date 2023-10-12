@@ -1,0 +1,11 @@
+{
+  "type": "industrialrevolution:crushing",
+  "ingredients": [
+    {
+      "item": "minecraft:coal"
+    }
+  ],
+  "output": {
+    "item": "industrialrevolution:coal_dust"
+  }
+}

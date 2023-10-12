@@ -1,0 +1,11 @@
+{
+  "type": "industrialrevolution:crushing",
+  "ingredients": [
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "output": {
+    "item": "industrialrevolution:gold_dust"
+  }
+}

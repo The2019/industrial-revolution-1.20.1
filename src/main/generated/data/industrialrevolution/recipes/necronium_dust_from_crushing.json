@@ -1,0 +1,11 @@
+{
+  "type": "industrialrevolution:crushing",
+  "ingredients": [
+    {
+      "item": "industrialrevolution:necronium_ingot"
+    }
+  ],
+  "output": {
+    "item": "industrialrevolution:necronium_dust"
+  }
+}

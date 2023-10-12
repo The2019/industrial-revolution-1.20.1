@@ -1,0 +1,11 @@
+{
+  "type": "industrialrevolution:crushing",
+  "ingredients": [
+    {
+      "item": "minecraft:emerald"
+    }
+  ],
+  "output": {
+    "item": "industrialrevolution:emerald_dust"
+  }
+}
