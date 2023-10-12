@@ -9,6 +9,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.the2019.industrialrevolution.IndustrialRevolution;
+import net.the2019.industrialrevolution.block.custom.IndustrialCrusherBlock;
 import net.the2019.industrialrevolution.block.custom.IndustrialSmelterBlock;
 
 public class ModBlocks {
@@ -30,6 +31,7 @@ public class ModBlocks {
 
     //Machines
     public static final Block INDUSTRIAL_SMELTER = registerBlock("industrial_smelter", new IndustrialSmelterBlock( FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
+    public static final Block INDUSTRIAL_CRUSHER = registerBlock("industrial_crusher", new IndustrialCrusherBlock( FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
 
 
 

@@ -44,6 +44,15 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SALMON_FILET, Models.GENERATED);
         itemModelGenerator.register(ModItems.TOOL_REPAIR_KIT, Models.GENERATED);
 
+        //Dusts
+        itemModelGenerator.register(ModItems.IRON_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COPPER_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GOLD_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COAL_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.EMERALD_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIAMOND_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.NECRONIUM_DUST, Models.GENERATED);
+
         //Tools
         itemModelGenerator.register(ModItems.INDUSTRIAL_METAL_KNIFE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DIAMOND_KNIFE, Models.HANDHELD);

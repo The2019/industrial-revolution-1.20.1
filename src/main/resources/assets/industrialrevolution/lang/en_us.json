@@ -5,6 +5,14 @@
   "item.industrialrevolution.industrial_metal_ingot": "Industrial Metal Ingot",
   "item.industrialrevolution.salmon_filet": "Salmon Filet",
 
+  "item.industrialrevolution.iron_dust": "Iron Dust",
+  "item.industrialrevolution.copper_dust": "Copper Dust",
+  "item.industrialrevolution.gold_dust": "Gold Dust",
+  "item.industrialrevolution.coal_dust": "Coal Dust",
+  "item.industrialrevolution.emerald_dust": "Emerald Dust",
+  "item.industrialrevolution.diamond_dust": "Diamond Dust",
+  "item.industrialrevolution.necronium_dust": "Necronium Dust",
+
   "item.industrialrevolution.industrial_metal_knife": "Industrial Metal Knife",
   "item.industrialrevolution.diamond_knife": "Diamond Knife",
   "item.industrialrevolution.iron_knife": "Iron Knife",
@@ -22,5 +30,6 @@
   "block.industrialrevolution.industrial_metal_block_stairs": "Industrial Metal Block Stair",
   "block.industrialrevolution.industrial_metal_block_slab": "Industrial Metal Block Slab",
 
-  "block.industrialrevolution.industrial_smelter": "Industrial Smelter"
+  "block.industrialrevolution.industrial_smelter": "Industrial Smelter",
+  "block.industrialrevolution.industrial_crusher": "Industrial Crusher"
 }

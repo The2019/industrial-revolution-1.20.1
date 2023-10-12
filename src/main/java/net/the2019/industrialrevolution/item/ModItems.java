@@ -18,6 +18,15 @@ public class ModItems {
     public static final Item COMPRESSED_COAL = registerItem("compressed_coal", new Item(new FabricItemSettings()));
     public static final Item INDUSTRIAL_METAL_INGOT = registerItem("industrial_metal_ingot", new Item(new FabricItemSettings()));
 
+    //Dusts
+    public static final Item IRON_DUST = registerItem("iron_dust", new Item(new FabricItemSettings()));
+    public static final Item COPPER_DUST = registerItem("copper_dust", new Item(new FabricItemSettings()));
+    public static final Item GOLD_DUST = registerItem("gold_dust", new Item(new FabricItemSettings()));
+    public static final Item COAL_DUST = registerItem("coal_dust", new Item(new FabricItemSettings()));
+    public static final Item EMERALD_DUST = registerItem("emerald_dust", new Item(new FabricItemSettings()));
+    public static final Item DIAMOND_DUST = registerItem("diamond_dust", new Item(new FabricItemSettings()));
+    public static final Item NECRONIUM_DUST = registerItem("necronium_dust", new Item(new FabricItemSettings()));
+
     //Food
     public static final Item SALMON_FILET = registerItem("salmon_filet", new Item(new FabricItemSettings().food(ModFoodComponents.SALMON_FILET)));
 

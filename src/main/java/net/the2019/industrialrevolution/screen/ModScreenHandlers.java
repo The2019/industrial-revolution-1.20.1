@@ -10,6 +10,7 @@ import net.the2019.industrialrevolution.IndustrialRevolution;
 public class ModScreenHandlers {
 
     public static final ScreenHandlerType<IndustrialSmelterScreenHandler> INDUSTRIAL_SMELTER_SCREEN_HANDLER = Registry.register(Registries.SCREEN_HANDLER, new Identifier(IndustrialRevolution.MOD_ID, "industrial_smelter_screen_handler"), new ExtendedScreenHandlerType<>(IndustrialSmelterScreenHandler::new));
+    public static final ScreenHandlerType<IndustrialCrusherScreenHandler> INDUSTRIAL_CRUSHER_SCREEN_HANDLER = Registry.register(Registries.SCREEN_HANDLER, new Identifier(IndustrialRevolution.MOD_ID, "industrial_crusher_screen_handler"), new ExtendedScreenHandlerType<>(IndustrialCrusherScreenHandler::new));
 
     public static void registerScreenHandler(){
         IndustrialRevolution.LOGGER.info("Registering Mod Screens for " + IndustrialRevolution.MOD_ID);

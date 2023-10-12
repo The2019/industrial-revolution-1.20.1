@@ -1,83 +1,1 @@
-package net.the2019.industrialrevolution.datagen;
-
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.util.Identifier;
-import net.the2019.industrialrevolution.block.ModBlocks;
-import net.the2019.industrialrevolution.item.ModItems;
-
-import java.util.List;
-import java.util.function.Consumer;
-
-public class ModRecipeGenerator extends FabricRecipeProvider {
-    public ModRecipeGenerator(FabricDataOutput output) {
-        super(output);
-    }
-
-    @Override
-    public void generate(Consumer<RecipeJsonProvider> exporter) {
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.INDUSTRIAL_METAL_BLOCK_STAIRS, 4)
-                .pattern("S  ")
-                .pattern("SS ")
-                .pattern("SSS")
-                .input('S', ModBlocks.INDUSTRIAL_METAL_BLOCK)
-                .criterion(hasItem(ModBlocks.INDUSTRIAL_METAL_BLOCK), conditionsFromItem(ModBlocks.INDUSTRIAL_METAL_BLOCK))
-                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.INDUSTRIAL_METAL_BLOCK_STAIRS)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.INDUSTRIAL_METAL_KNIFE, 1)
-                .pattern("  M")
-                .pattern(" M ")
-                .pattern("S  ")
-                .input('M', ModBlocks.INDUSTRIAL_METAL_BLOCK)
-                .input('S', Items.STICK)
-                .criterion(hasItem(ModBlocks.INDUSTRIAL_METAL_BLOCK), conditionsFromItem(ModBlocks.INDUSTRIAL_METAL_BLOCK))
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.INDUSTRIAL_METAL_KNIFE)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DIAMOND_KNIFE, 1)
-                .pattern("  M")
-                .pattern(" M ")
-                .pattern("S  ")
-                .input('M', Items.DIAMOND)
-                .input('S', Items.STICK)
-                .criterion(hasItem(Items.DIAMOND), conditionsFromItem(Items.DIAMOND))
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.DIAMOND_KNIFE)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.IRON_KNIFE, 1)
-                .pattern("  M")
-                .pattern(" M ")
-                .pattern("S  ")
-                .input('M', Items.IRON_INGOT)
-                .input('S', Items.STICK)
-                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.IRON_KNIFE)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STONE_KNIFE, 1)
-                .pattern("  M")
-                .pattern(" M ")
-                .pattern("S  ")
-                .input('M', Items.STONE)
-                .input('S', Items.STICK)
-                .criterion(hasItem(Items.STONE), conditionsFromItem(Items.STONE))
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.STONE_KNIFE)));
-
-
-
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.NECRONIUM_INGOT, RecipeCategory.MISC, ModBlocks.NECRONIUM_ORE);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.INDUSTRIAL_METAL_INGOT, RecipeCategory.MISC, ModBlocks.INDUSTRIAL_METAL_BLOCK);
-
-        offerSmelting(exporter, List.of(ModItems.RAW_NECRONIUM, ModBlocks.NECRONIUM_ORE, ModBlocks.NETHER_NECRONIUM_ORE, ModBlocks.END_STONE_NECRONIUM_ORE, ModBlocks.DEEPSLATE_NECRONIUM_ORE), RecipeCategory.MISC, ModItems.NECRONIUM_INGOT, 0.25f, 200, "necronium_ingot");
-        offerBlasting(exporter, List.of(ModItems.RAW_NECRONIUM, ModBlocks.NECRONIUM_ORE, ModBlocks.NETHER_NECRONIUM_ORE, ModBlocks.END_STONE_NECRONIUM_ORE, ModBlocks.DEEPSLATE_NECRONIUM_ORE), RecipeCategory.MISC, ModItems.NECRONIUM_INGOT, 0.25f, 200, "necronium_ingot");
-
-        offerSlabRecipe(exporter, RecipeCategory.MISC, ModBlocks.INDUSTRIAL_METAL_BLOCK_SLAB, ModBlocks.INDUSTRIAL_METAL_BLOCK);
-
-    }
-}
+package net.the2019.industrialrevolution.datagen;import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;import net.minecraft.data.server.recipe.RecipeJsonProvider;import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;import net.minecraft.item.ItemConvertible;import net.minecraft.item.Items;import net.minecraft.recipe.book.RecipeCategory;import net.minecraft.util.Identifier;import net.minecraft.util.collection.DefaultedList;import net.the2019.industrialrevolution.block.ModBlocks;import net.the2019.industrialrevolution.datagen.recipe.CrushingRecipeBuilder;import net.the2019.industrialrevolution.datagen.recipe.SmeltingRecipeBuilder;import net.the2019.industrialrevolution.item.ModItems;import java.util.List;import java.util.function.Consumer;public class ModRecipeGenerator extends FabricRecipeProvider {    public ModRecipeGenerator(FabricDataOutput output) {        super(output);    }    @Override    public void generate(Consumer<RecipeJsonProvider> exporter) {        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.INDUSTRIAL_METAL_BLOCK_STAIRS, 4)                .pattern("S  ")                .pattern("SS ")                .pattern("SSS")                .input('S', ModBlocks.INDUSTRIAL_METAL_BLOCK)                .criterion(hasItem(ModBlocks.INDUSTRIAL_METAL_BLOCK), conditionsFromItem(ModBlocks.INDUSTRIAL_METAL_BLOCK))                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.INDUSTRIAL_METAL_BLOCK_STAIRS)));        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.INDUSTRIAL_METAL_KNIFE, 1)                .pattern("  M")                .pattern(" M ")                .pattern("S  ")                .input('M', ModBlocks.INDUSTRIAL_METAL_BLOCK)                .input('S', Items.STICK)                .criterion(hasItem(ModBlocks.INDUSTRIAL_METAL_BLOCK), conditionsFromItem(ModBlocks.INDUSTRIAL_METAL_BLOCK))                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))                .offerTo(exporter, new Identifier(getRecipeName(ModItems.INDUSTRIAL_METAL_KNIFE)));        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DIAMOND_KNIFE, 1)                .pattern("  M")                .pattern(" M ")                .pattern("S  ")                .input('M', Items.DIAMOND)                .input('S', Items.STICK)                .criterion(hasItem(Items.DIAMOND), conditionsFromItem(Items.DIAMOND))                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))                .offerTo(exporter, new Identifier(getRecipeName(ModItems.DIAMOND_KNIFE)));        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.IRON_KNIFE, 1)                .pattern("  M")                .pattern(" M ")                .pattern("S  ")                .input('M', Items.IRON_INGOT)                .input('S', Items.STICK)                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))                .offerTo(exporter, new Identifier(getRecipeName(ModItems.IRON_KNIFE)));        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STONE_KNIFE, 1)                .pattern("  M")                .pattern(" M ")                .pattern("S  ")                .input('M', Items.STONE)                .input('S', Items.STICK)                .criterion(hasItem(Items.STONE), conditionsFromItem(Items.STONE))                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))                .offerTo(exporter, new Identifier(getRecipeName(ModItems.STONE_KNIFE)));        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.NECRONIUM_INGOT, RecipeCategory.MISC, ModBlocks.NECRONIUM_ORE);        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.INDUSTRIAL_METAL_INGOT, RecipeCategory.MISC, ModBlocks.INDUSTRIAL_METAL_BLOCK);        offerSmelting(exporter, List.of(ModItems.RAW_NECRONIUM, ModBlocks.NECRONIUM_ORE, ModBlocks.NETHER_NECRONIUM_ORE, ModBlocks.END_STONE_NECRONIUM_ORE, ModBlocks.DEEPSLATE_NECRONIUM_ORE), RecipeCategory.MISC, ModItems.NECRONIUM_INGOT, 0.25f, 200, "necronium_ingot");        offerBlasting(exporter, List.of(ModItems.RAW_NECRONIUM, ModBlocks.NECRONIUM_ORE, ModBlocks.NETHER_NECRONIUM_ORE, ModBlocks.END_STONE_NECRONIUM_ORE, ModBlocks.DEEPSLATE_NECRONIUM_ORE), RecipeCategory.MISC, ModItems.NECRONIUM_INGOT, 0.25f, 200, "necronium_ingot");        offerSlabRecipe(exporter, RecipeCategory.MISC, ModBlocks.INDUSTRIAL_METAL_BLOCK_SLAB, ModBlocks.INDUSTRIAL_METAL_BLOCK);        //Dusts        new CrushingRecipeBuilder(Items.IRON_INGOT, ModItems.IRON_DUST, 1).criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT)).offerTo(exporter);        new CrushingRecipeBuilder(Items.GOLD_INGOT, ModItems.GOLD_DUST, 1).criterion(hasItem(Items.GOLD_INGOT), conditionsFromItem(Items.GOLD_INGOT)).offerTo(exporter);        new CrushingRecipeBuilder(Items.COPPER_INGOT, ModItems.COPPER_DUST, 1).criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT)).offerTo(exporter);        new CrushingRecipeBuilder(Items.COAL, ModItems.COAL_DUST, 1).criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL)).offerTo(exporter);        new CrushingRecipeBuilder(Items.EMERALD, ModItems.EMERALD_DUST, 1).criterion(hasItem(Items.EMERALD), conditionsFromItem(Items.EMERALD)).offerTo(exporter);        new CrushingRecipeBuilder(Items.DIAMOND, ModItems.DIAMOND_DUST, 1).criterion(hasItem(Items.DIAMOND), conditionsFromItem(Items.DIAMOND)).offerTo(exporter);        new CrushingRecipeBuilder(ModItems.NECRONIUM_INGOT, ModItems.NECRONIUM_DUST, 1).criterion(hasItem(ModItems.NECRONIUM_INGOT), conditionsFromItem(ModItems.NECRONIUM_INGOT)).offerTo(exporter);        /* ######################### Smelter Recipes ################################ */        DefaultedList<ItemConvertible> industrial_metal_ingot_from_iron_ingot_coal_dust = DefaultedList.of();        industrial_metal_ingot_from_iron_ingot_coal_dust.add(Items.IRON_INGOT);        industrial_metal_ingot_from_iron_ingot_coal_dust.add(ModItems.COAL_DUST);        new SmeltingRecipeBuilder(industrial_metal_ingot_from_iron_ingot_coal_dust, ModItems.INDUSTRIAL_METAL_INGOT, 1).criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT)).offerTo(exporter);        DefaultedList<ItemConvertible> gold_ingot_from_gold_dust = DefaultedList.of();        gold_ingot_from_gold_dust.add(ModItems.GOLD_DUST);        gold_ingot_from_gold_dust.add(ModItems.GOLD_DUST);        new SmeltingRecipeBuilder(gold_ingot_from_gold_dust, Items.GOLD_INGOT, 2).criterion(hasItem(Items.GOLD_INGOT), conditionsFromItem(Items.GOLD_INGOT)).offerTo(exporter);    }}

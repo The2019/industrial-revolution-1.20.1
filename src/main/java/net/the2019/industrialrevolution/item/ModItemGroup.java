@@ -15,10 +15,7 @@ public class ModItemGroup {
     public static ItemGroup INDUSTRIALREVOLUTION = Registry.register(Registries.ITEM_GROUP, new Identifier(IndustrialRevolution.MOD_ID, "industrialrevolution"),FabricItemGroup.builder()
             .displayName(Text.literal("Industrial Revolution")).icon(() -> new ItemStack(ModItems.RAW_NECRONIUM)).entries((displayContext, entries) -> {
 
-                entries.add(ModItems.RAW_NECRONIUM);
-                entries.add(ModItems.NECRONIUM_INGOT);
-                entries.add(ModItems.COMPRESSED_COAL);
-                entries.add(ModItems.INDUSTRIAL_METAL_INGOT);
+
                 entries.add(ModItems.SALMON_FILET);
                 entries.add(ModItems.INDUSTRIAL_METAL_KNIFE);
                 entries.add(ModItems.DIAMOND_KNIFE);
@@ -37,9 +34,28 @@ public class ModItemGroup {
                 entries.add(ModBlocks.INDUSTRIAL_METAL_BLOCK_SLAB);
 
                 entries.add(ModBlocks.INDUSTRIAL_SMELTER);
+                entries.add(ModBlocks.INDUSTRIAL_CRUSHER);
 
             }).build());
 
+    public static ItemGroup INDUSTRIALREVOLUTION_MATERIALS = Registry.register(Registries.ITEM_GROUP, new Identifier(IndustrialRevolution.MOD_ID, "industrialrevolution_materials"),FabricItemGroup.builder()
+            .displayName(Text.literal("Industrial Revolution Materials")).icon(() -> new ItemStack(ModItems.IRON_DUST)).entries((displayContext, entries) -> {
+
+                //Dusts
+                entries.add(ModItems.IRON_DUST);
+                entries.add(ModItems.COPPER_DUST);
+                entries.add(ModItems.GOLD_DUST);
+                entries.add(ModItems.COAL_DUST);
+                entries.add(ModItems.EMERALD_DUST);
+                entries.add(ModItems.DIAMOND_DUST);
+                entries.add(ModItems.NECRONIUM_DUST);
+
+                //Other Stuff
+                entries.add(ModItems.RAW_NECRONIUM);
+                entries.add(ModItems.NECRONIUM_INGOT);
+                entries.add(ModItems.COMPRESSED_COAL);
+                entries.add(ModItems.INDUSTRIAL_METAL_INGOT);
+            }).build());
 
     public static void registerItemGroup(){
         IndustrialRevolution.LOGGER.info("Registering  Mod Item Group for " + IndustrialRevolution.MOD_ID);

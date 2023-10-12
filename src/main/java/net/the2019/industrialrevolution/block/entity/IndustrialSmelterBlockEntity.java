@@ -6,6 +6,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -17,10 +18,13 @@ import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.the2019.industrialrevolution.block.ModBlocks;
 import net.the2019.industrialrevolution.item.ModItems;
+import net.the2019.industrialrevolution.recipe.CrushingRecipe;
+import net.the2019.industrialrevolution.recipe.SmelterRecipe;
 import net.the2019.industrialrevolution.screen.IndustrialSmelterScreenHandler;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class IndustrialSmelterBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
@@ -34,23 +38,25 @@ public class IndustrialSmelterBlockEntity extends BlockEntity implements Extende
     private int progress = 0;
     private int maxProgress = 72;
 
-    public IndustrialSmelterBlockEntity( BlockPos pos, BlockState state) {
+    public IndustrialSmelterBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.INDUSTRIAL_SMELTER_BLOCK_ENTITY, pos, state);
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
-                return switch (index){
+                return switch (index) {
                     case 0 -> IndustrialSmelterBlockEntity.this.progress;
                     case 1 -> IndustrialSmelterBlockEntity.this.maxProgress;
-                    default ->  0;
+                    default -> 0;
                 };
             }
 
             @Override
             public void set(int index, int value) {
-                switch (index){
-                    case 0: IndustrialSmelterBlockEntity.this.progress = value;
-                    case 1: IndustrialSmelterBlockEntity.this.maxProgress = value;
+                switch (index) {
+                    case 0:
+                        IndustrialSmelterBlockEntity.this.progress = value;
+                    case 1:
+                        IndustrialSmelterBlockEntity.this.maxProgress = value;
                 }
             }
 
@@ -97,17 +103,17 @@ public class IndustrialSmelterBlockEntity extends BlockEntity implements Extende
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-         if(canInsertIntoOutputSlot() && hasRecipe()){
+        if (canInsertIntoOutputSlot() && hasRecipe()) {
             increaseCraftingProgress();
             markDirty(world, pos, state);
-            
-            if(hasCraftFinished()){
+
+            if (hasCraftFinished()) {
                 craftItem();
                 resetProgress();
             }
-         }else {
-             resetProgress();
-         }
+        } else {
+            resetProgress();
+        }
     }
 
     private void resetProgress() {
@@ -115,9 +121,11 @@ public class IndustrialSmelterBlockEntity extends BlockEntity implements Extende
     }
 
     private void craftItem() {
+        Optional<SmelterRecipe> recipe = getCurrentRecipe();
+
         this.removeStack(INPUT_SLOT_1, 1);
         this.removeStack(INPUT_SLOT_2, 1);
-        this.setStack(OUTPUT_SLOT, new ItemStack(ModItems.INDUSTRIAL_METAL_INGOT, this.getStack(OUTPUT_SLOT).getCount() + 1));
+        this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().getOutput(null).getItem(), this.getStack(OUTPUT_SLOT).getCount() + recipe.get().getOutput(null).getCount()));
     }
 
     private boolean hasCraftFinished() {
@@ -129,7 +137,31 @@ public class IndustrialSmelterBlockEntity extends BlockEntity implements Extende
     }
 
     private boolean hasRecipe() {
-        return this.getStack(INPUT_SLOT_1).getItem() == Items.IRON_INGOT && this.getStack(INPUT_SLOT_2).getItem() == Items.IRON_INGOT;
+        Optional<SmelterRecipe> recipe = getCurrentRecipe();
+
+        if (recipe.isEmpty()) {
+            return false;
+        }
+        ItemStack output = recipe.get().getOutput(null);
+
+        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
+    }
+
+    private boolean canInsertItemIntoOutputSlot(ItemStack output) {
+        return this.getStack(OUTPUT_SLOT).isEmpty() || this.getStack(OUTPUT_SLOT).getItem() == output.getItem();
+    }
+
+    private boolean canInsertAmountIntoOutputSlot(int count) {
+        return this.getStack(OUTPUT_SLOT).getMaxCount() >= this.getStack(OUTPUT_SLOT).getCount() + count;
+    }
+
+    private Optional<SmelterRecipe> getCurrentRecipe() {
+        SimpleInventory inventory = new SimpleInventory((this.size()));
+        for (int i = 0; i < this.size(); i++) {
+            inventory.setStack(i, this.getStack(i));
+        }
+
+        return this.getWorld().getRecipeManager().getFirstMatch(SmelterRecipe.Type.INSTANCE, inventory, this.getWorld());
     }
 
     private boolean canInsertIntoOutputSlot() {
